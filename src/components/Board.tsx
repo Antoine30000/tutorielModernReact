@@ -8,6 +8,9 @@ export const Board = () => {
   const dispatch = useDispatch();
 
   const handleClick = (index: number) => {
+  if (winner || squares[index]) {
+    return;
+  }
   currentPlayer === 1 ?
    dispatch(updateSquare({index,value:"X"}))
    : dispatch(updateSquare({index,value:"O"}));
@@ -15,10 +18,12 @@ export const Board = () => {
   }
 
 const renderSquare = (index: number) => {
+  const disabled = winner || squares[index]
     return (
       <Square
         value={squares[index]}
         onClick={() => handleClick(index)}
+        disabled={disabled}
       />
     );
   }

@@ -1,13 +1,12 @@
 interface SquareProps {
     value: string | null;
     onClick: () => void;
+    disabled:string | null;
   }
 
-export const Square=({value,onClick}:SquareProps)=> {
-    const disabled = !!value;
-    
+export const Square=({value,onClick}:SquareProps)=> { 
   return (
-    <button className="square" onClick={onClick} disabled={disabled}>
+    <button className="square" onClick={onClick}>
       {value}
     </button>
   );
