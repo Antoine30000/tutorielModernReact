@@ -4,12 +4,16 @@ import { store } from "./stateManagement/store";
 
 function App() {
   return (
-    <div>
+    <>
+    <div className="content">
       <h1>Tic Tac Toe</h1>
-      <Provider store={store}>
-      <Board />
-      </Provider>
+      <div className="game">
+        <Provider store={store}>
+          <Board />
+        </Provider>
+      </div>
     </div>
+    </>
   );
 }
 

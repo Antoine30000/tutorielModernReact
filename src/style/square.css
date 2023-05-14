@@ -1,0 +1,29 @@
+
+.square {
+    border: 1px solid #999;
+    height: 80px;
+    width: 80px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .square:hover {
+    background-color: #eee;
+  }
+  
+  .square:focus {
+    outline: none;
+  }
+  
+  .square:disabled {
+    cursor: not-allowed;
+  }
+  

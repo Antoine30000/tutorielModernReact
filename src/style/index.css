@@ -1,0 +1,49 @@
+@import "square.css";
+@import "board.css";
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.reset-button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.reset-button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.reset-button:focus {
+  outline: none;
+}
+
