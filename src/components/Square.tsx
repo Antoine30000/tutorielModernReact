@@ -5,6 +5,7 @@ interface SquareProps {
 
 export const Square=({value,onClick}:SquareProps)=> {
     const disabled = !!value;
+    
   return (
     <button className="square" onClick={onClick} disabled={disabled}>
       {value}
@@ -12,4 +13,4 @@ export const Square=({value,onClick}:SquareProps)=> {
   );
 }
 
-export default Square;
+

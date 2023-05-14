@@ -1,13 +1,17 @@
-import Square from './Square';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, updateSquare } from '../stateManagement/SquareSlice';
+import { RootState, switchPlayer, updateSquare } from '../stateManagement/SquareSlice';
+import { Square } from './Square';
 
 export const Board = () => {
   const squares = useSelector((state: RootState)=>state.squares);
+  const currentPlayer = useSelector((state:RootState)=>state.currentPlayer)
   const dispatch = useDispatch();
 
   const handleClick = (index: number) => {
+  currentPlayer === 1 ?
    dispatch(updateSquare({index,value:"X"}))
+   : dispatch(updateSquare({index,value:"O"}));
+   dispatch(switchPlayer());
   }
 
 const renderSquare = (index: number) => {

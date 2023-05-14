@@ -1,11 +1,13 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface RootState{
-    squares:(string | null)[];
+    squares: (string | null)[];
+    currentPlayer: number;
 }
 
 const initialState : RootState = {
     squares: Array(9).fill(null),
+    currentPlayer: 1,
 };
 
 export const squareSlice = createSlice({
@@ -18,8 +20,11 @@ export const squareSlice = createSlice({
         },
         reset(state) {
             state.squares = initialState.squares;
+        },
+        switchPlayer(state){
+            state.currentPlayer = state.currentPlayer === 1 ? 2 : 1;
         }
     }
 })
 
-export const {updateSquare,reset}= squareSlice.actions
+export const {updateSquare, reset, switchPlayer}= squareSlice.actions
