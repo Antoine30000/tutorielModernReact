@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, switchPlayer, updateSquare } from '../stateManagement/SquareSlice';
+import { RootState, reset, switchPlayer, updateSquare } from '../stateManagement/SquareSlice';
 import { Square } from './Square';
 
 export const Board = () => {
@@ -15,6 +15,10 @@ export const Board = () => {
    dispatch(updateSquare({index,value:"X"}))
    : dispatch(updateSquare({index,value:"O"}));
    dispatch(switchPlayer());
+  }
+
+  const handleReset = () =>{
+    dispatch(reset());
   }
 
 const renderSquare = (index: number) => {
@@ -76,6 +80,7 @@ const renderSquare = (index: number) => {
         {renderSquare(8)}
       </div>
       {status}
+      {winner && (<button onClick={handleReset}>Reset Board</button>)}
     </div>
   );
 }
