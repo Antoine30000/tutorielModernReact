@@ -59,7 +59,7 @@ const renderSquare = (index: number) => {
   const winner = checkWin(squares);
   const isTie = winner === "Tie";
   let status;
-  if (winner != "Tie"){
+  if (winner != "Tie" && winner){
     status = `Winner: ${winner}`;
   } else if (isTie){
     status = "It's a tie";
