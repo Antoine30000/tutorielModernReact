@@ -49,14 +49,20 @@ const renderSquare = (index: number) => {
       if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c]) {
         return squares[a];
       }
+      if (squares.every((square) => square !== null)){
+        return "Tie";
+      }
     }
     return null;
   }
 
   const winner = checkWin(squares);
+  const isTie = winner === "Tie";
   let status;
-  if (winner){
+  if (winner != "Tie"){
     status = `Winner: ${winner}`;
+  } else if (isTie){
+    status = "It's a tie";
   } else {
     status = `Next player: ${currentPlayer}`;
   }
@@ -83,7 +89,7 @@ const renderSquare = (index: number) => {
       </div>
       <div className="bottom">
         <div className='status'>{status}</div>
-        {winner && (<button onClick={handleReset}>Reset Board</button>)}
+        {(winner || isTie) && (<button onClick={handleReset} className='reset-button'>Reset Board</button>)}
         </div>
       </div>
   );
